@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Think</title>
+</head>
+<body >
+ <div class="main">
+ 
+
+ <div class="card" style="width: 70%; background-color: rgba(231, 231, 231, 0.616);"><a id="fb-share-button">
+   <svg style="color:rgb(0, 119, 255);" xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+</svg><svg style="color:rgb(0, 119, 255);" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-share-fill" viewBox="0 0 16 16">
+  <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
+</svg></a>
+  <img src="https://backgroundcheckall.com/wp-content/uploads/2017/12/entrepreneur-background-4.jpg" class="card-img-top" alt="..." height="160px"  >
+  <div class="card-body" style="width: 70%;"> 
+    <h5 class="card-title" style="width: 70%; color: rgb(51, 245, 180)">by<div id="author"></h5 style="width: 70%;">
+      <hr>
+    <p class="card-text" style="width: 70%; "><svg style="color: yellow;" xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+      <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+    </svg> Write...............<div id="quotes">
+ </div></p>
+ <br><br><br> <br>
+    <a href="#" class="btn btn-success btn-outline-dark" id="newQ">New Think</a>
+  </div>
+</div></div>
+<script>
+  const author = document.getElementById("author")
+  const quotes = document.getElementById("quotes")
+  const newQ = document.getElementById("newQ")
+  let realData ="";
+  let quotesData =""
+  const getNewQuotes = ()=>{
+    let rnum =Math.floor(Math.random()*100);
+    console.log(rnum)
+console.log(realData[rnum].author)
+quotesData = realData[rnum]
+quotes.innerText=`${(quotesData.text)}`
+quotesData.author == null
+?(author.innerText = Ankushthink)
+:author.innerText=`${(quotesData.author)}`
+  }
+  const getQuotes = async () => {
+    const api = "https://type.fit/api/quotes";
+    try{
+       let data = await fetch(api)
+       realData =await  data.json();
+       getNewQuotes();
+       
+    } catch(error){}
+  }
+  
+  newQ.addEventListener("click",getNewQuotes)
+  getQuotes()
+  var fbButton = document.getElementById('fb-share-button');
+var url = window.location.href;
+
+fbButton.addEventListener('click', function() {
+    window.open('https://www.facebook.com/sharer/sharer.php?u=' + url,
+        'facebook-share-dialog',
+        'width=800,height=600'
+    );
+    return false;
+});
+</script>
+</body>
+</html>
