@@ -2,11 +2,11 @@ body{
   height: 100vh;
   background-image: linear-gradient(rgb(255, 185, 185),rgb(112, 255, 112), rgb(235, 235, 123),pink, white);
 }
-.main{
- margin: 5%;
- margin-left: 30%;
+
+
+
  
-}
+
 #quotes{
  color: rgb(247, 54, 20);
  text-shadow: rgb(0, 195, 255) 0px 2px 5px;
